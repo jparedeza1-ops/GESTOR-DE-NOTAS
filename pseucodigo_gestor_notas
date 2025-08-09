@@ -1,0 +1,15 @@
+
+Inicio 
+Imprimir: seleccione el numero de la opción que desea, 1. search curso 2. punteo de  tareas 3. total de puntos de tareas 4. Mostar el promedio 5. nota máxima 6. nota mínima de tareas 7. regitrar notas de curso 
+Escribir: Selección de Opción 
+Si selección  <= 5 entonces hacer 
+Mientras  selección de opción 5 < =  hacer 
+1. search curso
+2. punto de tareas 
+3. total de puntos de tareas
+4. mostrar el promedio   
+5. nota máxima 
+6. nota mínima
+7. fin si
+8. fin mientras
+9. fin algoritmo
