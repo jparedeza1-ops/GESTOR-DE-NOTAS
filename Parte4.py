@@ -63,11 +63,61 @@ def main():
         except ValueError: #valueerror es una clausula para manejar errores de valor si el usuario ingresa un valor no valido
             print("Por favor, ingrese un numero valido para la opcion.")
         
-      
+def ordenar_materias(): #creo esta funcion para que pueda ordenar los cursos 
+    if not materias:
+        print("no hay materias para ordenar")
+        return
+        materias_ordenadas, comparaciones, intercambios = ordenamiento_insercion(materias)
+        historial.append(f"Cursos ordenados: {materias_ordenados}")
+    print("Cursos ordenados alfabeticamente (método inserción):")
+    for i, curso in enumerate(materias_ordenados, start=1): # type: ignore
+        print(f"{i}. {curso}")
+        print(f"Comparaciones: {comparaciones}, Intercambios: {intercambios}") # type: ignore
 
+def eliminar_ultima_operacion(): # creo una funcion para eliminar la ultima operacion realizada del historial 
+    if not historial: # pyright: ignore[reportUndefinedVariable]
+        print("No hay operaciones en el historial para eliminar")
+        return
+    
+    ultima_operacion = historial.pop() # pyright: ignore[reportUndefinedVariable]
+    print(f"Ultima operacion eliminada del historial: {ultima_operacion}")
+    print(f"Quedan {len(historial)} operaciones en el historial") # pyright: ignore[reportUndefinedVariable]
 
+#creo una funcion principal   donde estaran todas las funcioes creadas aneteriormente y un ciclo while para que el menu se muestre hasta que el usuario decida salir del programa
+
+    def main():
+
+     while True: #creo un bucle
+        mostrar_menu() # pyright: ignore[reportUndefinedVariable] #llamo a la funcion mostrar_menu
+          #utilizo try para manejar errores de entrada del usuario si selecciona una opcion no valida mostrare un mensaje de error y el menu se mostrara de nuevo
+    
+        try :
+            opcion = int(input("Seleccione una opcion (1-7): ")) #int para convertir la entrada del usuario a un numero entero de str a int
+            if opcion == 1:
+                agregarmateria()# pyright: ignore[reportUndefinedVariable] #llamo a la funcion agregarcurso
+            elif opcion == 2:
+                eliminarmateria()# pyright: ignore[reportUndefinedVariable] #llamo a la funcion eliminarcurso
+            elif opcion == 3:
+                ingresarnotasycalcularpromedio()# pyright: ignore[reportUndefinedVariable] #llamo a la funcion ingresarnotasycalcularpromedio en esta funcion la N cantidad de notas que el usuario se sumaron su valor cada una y se dividio entre la cantidad de notas para obtener el promedio
+            elif opcion == 4:
+                ordenar_materias()#llamo a la funcion ordenar_cursos
+            elif opcion == 5:
+                ver_historial()# pyright: ignore[reportUndefinedVariable] #llamo a la funcion ver_historial
+            elif opcion == 6:
+                eliminar_ultima_operacion()#llamo a la funcion eliminar_ultima_operacion
+            elif opcion == 7:
+                print("Saliendo del programa. ¡Hasta luego!")
+                break #rompo el ciclo while si el usuario selecciona la opcion 4
+            else:
+                print("Opcion invalida. Por favor, seleccione una opcion del 1 al 7.")
+        except ValueError: #valueerror es una clausula para manejar errores de valor si el usuario ingresa un valor no valido
+            print("Por favor, ingrese un numero valido para la opcion.")
+        
 if __name__ == "__main__":
     main() #llamo a la funcion main para ejecutar el programa
+    
+
+
 
 
 
